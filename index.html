@@ -1,115 +1,56 @@
 <!doctype html>
 <html>
 <head>
-  <style>
-    html {
-      font: 16px tahoma;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-    }
-    #wrapper {
-      width: 800px;
-      margin: 0 auto;
-    }
-    #random-item {
-      font-style: italic;
-    }
-    h1 {
-      text-align: center;
-      display: inline;
-      height: 100%;
-    }
-    header {
-      background-color: #9d35c8;
-    }
-    div {
-      margin-bottom: 1em;
-    }
-    img {
-      display: inline;
-      padding: 1em;
-    }
-  </style>
+  <title>Random Hat Draw</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Philosopher:700' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div id="wrapper">
-    <header>
-      <img src="images/misteraibo-hat.png"></img>
-      <h1>Random Hat Draw!</h1>
+
+    <header class="Grid Grid--alignMiddle Grid--fit Grid--equalHeight">
+      <div class="Grid-cell Grid--alignCenter u-size1of1 u-lg-size1of2">
+        <img class="figure" src="images/misteraibo-hat.png"></img>
+      </div>
+      <div class="Grid-cell Grid--alignCenter u-size1of1 u-lg-size1of2">
+        <h1 class="unit">Random Hat Draw!</h1>
+      </div>
     </header>
-    <div>
-      <span>1. Enter a list of things, one on each line.</span>
-      <br>
-      <textarea id="source-list" cols="40" rows="10"></textarea>
+
+    <div class="Grid Grid--alignMiddle Grid--fit Grid--equalHeight">
+      <div class="Grid-cell Grid--alignCenter u-size1of1">
+        <span>Enter a list of things, one on each line.</span>
+      </div>
     </div>
-    <div>
-      <span>2. Click the button!</span>
-      <button id="pick-random-item-button">Pick random thing</button>
+
+    <div class="Grid Grid--alignMiddle Grid--fit Grid--equalHeight">
+      <div class="Grid-cell Grid--alignCenter u-size1of1">
+        <textarea class="margin-bottom" id="source-list" rows="8"></textarea>
+      </div>
     </div>
-    <div>
-      <span>Random pick: </span><span id="random-item"></span>
+
+    <div class="Grid Grid--alignMiddle Grid--fit Grid--equalHeight">
+      <div class="Grid-cell Grid--alignCenter u-size1of1">
+        <button
+          class="ladda-button margin-bottom"
+          data-style="slide-down"
+          data-color="green"
+          id="pick-random-item-button"
+        >
+          <span class="ladda-label">Pick random thing</span>
+        </button>
+      </div>
     </div>
-    <br>
-    <br>
-    <br>
+
+    <div class="Grid Grid--alignMiddle Grid--fit Grid--equalHeight">
+      <div class="Grid-cell Grid--alignCenter u-size1of1">
+        <span>Random pick: </span><span id="random-item"></span>
+      </div>
+    </div>
+
   </div>
 
-  <script>
-    function fetchRandomIndex(arraySize, callback) {
-      var lastIndex = arraySize - 1;
-      var randomNumberServiceURL = 'https://www.random.org/integers/?num=1&col=1&base=10&format=plain&rnd=new&min=0';
-      randomNumberServiceURL += '&max=' + lastIndex.toString();
-
-      var xhr = new XMLHttpRequest();
-      xhr.addEventListener('load', function () {
-        var randomIndex = parseInt(this.responseText, 10);
-        callback(null, randomIndex);
-      });
-      xhr.addEventListener('error', function () {
-        callback(new Error(this.responseText));
-      });
-      xhr.open('GET', randomNumberServiceURL);
-      xhr.send();
-    }
-
-
-    function getListFromElement(elementId) {
-      var listEl = document.getElementById(elementId);
-      var list = listEl.value.split("\n");
-      return list.filter(function (item) {
-        return item.length > 0;
-      });
-    }
-
-    function pickRandomItem(list, callback) {
-      fetchRandomIndex(list.length, function (err, randomIndex) {
-        if (err) {
-          return callback(err);
-        }
-        callback(null, list[randomIndex]);
-      });
-    }
-
-    function displayText(text, elementId) {
-      var element = document.getElementById(elementId);
-      element.textContent = text;
-    }
-
-    var buttonEl = document.getElementById("pick-random-item-button");
-    buttonEl.addEventListener("click", function () {
-      var sourceListElementId = "source-list";
-      var randomItemElementId = "random-item";
-      pickRandomItem(getListFromElement(sourceListElementId), function (err, randomPick) {
-        if (err) {
-          console.error(err);
-          return;
-        }
-        displayText(randomPick, randomItemElementId);
-      });
-    });
-  </script>
+  <script src="/hat-bundle.js"></script>
 
 </body>
 </html>
