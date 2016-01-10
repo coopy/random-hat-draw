@@ -1,0 +1,14 @@
+{
+  "name": "hat-draw",
+  "version": "0.0.1",
+  "description": "Draw a random thing from a hat full of things",
+  "main": "hat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Per Nilsson <per@sproutlab.com>",
+  "license": "MIT",
+  "dependencies": {
+    "knuth-shuffle": "^1.0.1"
+  }
+}
