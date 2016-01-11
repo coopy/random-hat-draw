@@ -5,3 +5,8 @@
 .margin-bottom {
   margin-bottom: 1em;
 }
+
+.rotate-enter: {
+  transform: rotate(1080deg);
+  transition: 1s ease-in-out;
+}

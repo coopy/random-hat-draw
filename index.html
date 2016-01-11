@@ -6,51 +6,7 @@
   <link href='https://fonts.googleapis.com/css?family=Philosopher:700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div id="wrapper">
-
-    <header class="Grid Grid--alignMiddle Grid--fit Grid--equalHeight">
-      <div class="Grid-cell Grid--alignCenter u-size1of1 u-lg-size1of2">
-        <img class="figure" src="images/misteraibo-hat.png"></img>
-      </div>
-      <div class="Grid-cell Grid--alignCenter u-size1of1 u-lg-size1of2">
-        <h1 class="unit">Random Hat Draw!</h1>
-      </div>
-    </header>
-
-    <div class="Grid Grid--alignMiddle Grid--fit Grid--equalHeight">
-      <div class="Grid-cell Grid--alignCenter u-size1of1">
-        <span>Enter a list of things, one on each line.</span>
-      </div>
-    </div>
-
-    <div class="Grid Grid--alignMiddle Grid--fit Grid--equalHeight">
-      <div class="Grid-cell Grid--alignCenter u-size1of1">
-        <textarea class="margin-bottom" id="source-list" rows="8"></textarea>
-      </div>
-    </div>
-
-    <div class="Grid Grid--alignMiddle Grid--fit Grid--equalHeight">
-      <div class="Grid-cell Grid--alignCenter u-size1of1">
-        <button
-          class="ladda-button margin-bottom"
-          data-style="slide-down"
-          data-color="green"
-          id="pick-random-item-button"
-        >
-          <span class="ladda-label">Pick random thing</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="Grid Grid--alignMiddle Grid--fit Grid--equalHeight">
-      <div class="Grid-cell Grid--alignCenter u-size1of1">
-        <span>Random pick: </span><span id="random-item"></span>
-      </div>
-    </div>
-
-  </div>
-
+  <div id="react-app-container"></div>
   <script src="/hat-bundle.js"></script>
-
 </body>
 </html>

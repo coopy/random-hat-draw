@@ -1,10 +1,12 @@
+var path = require('path');
+
 var autoprefixer = require('autoprefixer');
 var precss = require('precss');
 var postcssImport = require('postcss-import');
 
 module.exports = {
   context: __dirname,
-  entry: './src/js/main.js',
+  entry: './src/js/root.jsx',
   output: {
     path: './build',
     publicPath: '/',
@@ -27,7 +29,11 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css']
+    extensions: ['', '.js', '.jsx', '.css'],
+    root: [
+      path.join(__dirname, 'node_modules'),
+      path.join(__dirname, 'src'),
+    ]
   },
   postcss: function (webpack) {
     return [
