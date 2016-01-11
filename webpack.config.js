@@ -4,7 +4,7 @@ var postcssImport = require('postcss-import');
 
 module.exports = {
   context: __dirname,
-  entry: './src/main.js',
+  entry: './src/js/main.js',
   output: {
     path: './build',
     publicPath: '/',
@@ -22,7 +22,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader!postcss-loader"
+        loader: 'style-loader!css-loader!postcss-loader'
       },
     ]
   },

@@ -4,7 +4,7 @@ import Ladda from 'ladda';
 require('ladda/dist/ladda.min.css');
 require('./css/main');
 
-import getRandomArrayIndex from './random-array-index';
+import getRandomArrayIndex from './lib/random-array-index';
 
 function getListFromElement(elementId) {
   const listEl = document.getElementById(elementId);
