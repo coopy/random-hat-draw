@@ -4,8 +4,9 @@
   "description": "Draw a random thing from a hat full of things",
   "main": "hat.js",
   "scripts": {
-    "test": "eslint src/js",
-    "start": "webpack-dev-server --watch --inline"
+    "lint": "eslint src/js",
+    "start": "webpack-dev-server --watch --inline",
+    "test": "npm run lint"
   },
   "author": "Per Nilsson <per@sproutlab.com>",
   "license": "MIT",
