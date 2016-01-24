@@ -1,0 +1,6 @@
+---
+"extends":
+  - "defaults/configurations/airbnb/es6-react"
+
+"rules":
+  "comma-dangle": [2, "never"]
