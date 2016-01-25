@@ -1,15 +1,15 @@
-var path = require('path');
+const path = require('path');
 
-var autoprefixer = require('autoprefixer');
-var precss = require('precss');
-var postcssImport = require('postcss-import');
+const autoprefixer = require('autoprefixer');
+const precss = require('precss');
+const postcssImport = require('postcss-import');
 
 module.exports = {
   context: __dirname,
   entry: './src/js/root.jsx',
   output: {
     path: './build',
-    publicPath: '/',
+    publicPath: '/static',
     filename: 'hat-bundle.js'
   },
   module: {
@@ -25,17 +25,17 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader!postcss-loader'
-      },
+      }
     ]
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.css'],
     root: [
       path.join(__dirname, 'node_modules'),
-      path.join(__dirname, 'src'),
+      path.join(__dirname, 'src')
     ]
   },
-  postcss: function (webpack) {
+  postcss(webpack) {
     return [
       postcssImport({
         addDependencyTo: webpack
