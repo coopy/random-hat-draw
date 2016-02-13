@@ -1,6 +1,8 @@
+require('ladda/dist/ladda.min.css');
+require('ladda/js/ladda');
+
 import React from 'react';
 import LaddaButton from 'react-ladda';
-require('ladda/dist/ladda.min.css');
 
 const ItemPickButton = (props) => {
   return (

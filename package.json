@@ -14,10 +14,14 @@
     "clean": "mkdir -p build && rm -rf build/*",
     "deploy": "npm run build && eb deploy",
     "dev": "webpack-dev-server --watch --inline",
+    "docker-build-dev": "docker build -f Dockerfile.dev -t hat-draw-dev .",
+    "docker-build-dist": "docker build -f Dockerfile.dist -t hat-draw-dist .",
+    "docker-run-dev": "docker run -it --rm -p 3000:8080 hat-draw-dev",
+    "docker-run-dist": "if [ -z $PORT ]; then echo 'ERROR: PORT must be set' && exit 1; fi; docker run -d -p $PORT:3000 hat-draw-dist",
     "server-dev": "nodemon server.js",
     "server-prod": "NODE_ENV=production forever server.js",
     "lint": "eslint *.js src/js",
-    "start": "npm run server-prod",
+    "start": "npm run dev",
     "test": "npm run lint"
   },
   "dependencies": {
