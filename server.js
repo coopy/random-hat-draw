@@ -2,23 +2,27 @@
 
 const path = require('path');
 const Hapi = require('hapi');
+const Inert = require('inert');
+const Good = require('good');
+const GoodConsole = require('good-console');
 // const GoodBunyanReporter = require('good-bunyan');
 
 // const logLevel = 'debug';
 // const logger = require('./server-logger')(logLevel);
 
+const DEFAULT_PORT = 3000;
 const server = new Hapi.Server();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || DEFAULT_PORT;
 
 server.connection({ port });
 
 server.register([
-  { register: require('inert') },
-  { register: require('good'),
+  { register: Inert },
+  { register: Good,
     options: {
       opsInterval: 5000,
       reporters: [{
-        reporter: require('good-console'),
+        reporter: GoodConsole,
         events: { ops: '*', log: '*', request: '*', response: '*' }
       }
       // ,

@@ -1,9 +1,6 @@
 ---
 "extends":
-  - "defaults/configurations/walmart/es6-react"
-
-"env":
-  browser: true
+  - "defaults/configurations/walmart/es6-node"
 
 "rules":
   "quotes": [2, "single"]

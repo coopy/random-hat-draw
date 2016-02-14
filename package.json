@@ -20,7 +20,9 @@
     "docker-run-dist": "if [ -z $PORT ]; then echo 'ERROR: PORT must be set' && exit 1; fi; docker run -d -p $PORT:3000 hat-draw-dist",
     "server-dev": "nodemon server.js",
     "server-prod": "NODE_ENV=production forever server.js",
-    "lint": "eslint *.js src/js",
+    "lint": "npm run lint-server & npm run lint-client",
+    "lint-client": "eslint src/js",
+    "lint-server": "eslint --config .eslintrc-server ./*.js",
     "start": "npm run dev",
     "test": "npm run lint"
   },
@@ -58,7 +60,8 @@
   "devDependencies": {
     "babel-eslint": "^5.0.0-beta6",
     "eslint": "^1.10.3",
-    "eslint-config-defaults": "^8.0.2",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-plugin-filenames": "^0.2.0",
     "eslint-plugin-react": "^3.16.0",
     "nodemon": "^1.8.1",
     "webpack-dev-server": "^1.14.0"
