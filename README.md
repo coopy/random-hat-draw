@@ -39,7 +39,7 @@ To run the node server in a Docker image on localhost:
 
 1. Build the image:
 
-        $ docker build -f Dockerfile.dev -t hat-draw .
+        $ docker build -f Dockerfile.dev -t hat-draw-dev .
 
 2. Run the image:
 

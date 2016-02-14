@@ -29,6 +29,9 @@ module.exports = {
     ]
   },
   resolve: {
+    alias: {
+      'spin': 'spin.js'
+    },
     extensions: ['', '.js', '.jsx', '.css'],
     root: [
       path.join(__dirname, 'node_modules'),
